@@ -42,6 +42,12 @@ DB_USER=cms
 DB_PASSWORD="xxxxxxxx"
 ```
 
+## Migration
+
+```
+php artisan migrate
+```
+
 # Development
 
 ## Server
