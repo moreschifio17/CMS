@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\PostRequest;
 /**
  * Class ImageController
  * @package App\Http\Controllers
@@ -38,10 +38,12 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
+        
+        //$request->validated();
         $image = Image::create($request->all());
-
+       
         return $image;
     }
 

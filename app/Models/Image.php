@@ -19,12 +19,6 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     
-    static $rules = [
-		'image_id' => 'required',
-		'image_name' => 'required',
-		'image_extention' => 'required',
-    ];
-
     protected $perPage = 20;
 
     /**
