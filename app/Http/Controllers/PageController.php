@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\PagePostRequest;
 class PageController extends Controller
 {
     /**
@@ -36,7 +36,7 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PagePostRequest $request)
     {
        
          $page= new Page();
@@ -76,10 +76,10 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(PagePostRequest $request,$id)
     {
-         $result= $page->update($request->all());
-         return $result;
+        $page = Page::where('page_id', $id)->update($request->all());
+         return $page;
              
     }
 

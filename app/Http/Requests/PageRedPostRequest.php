@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class PageRedPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +23,10 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        
         return  [
-            'image_name' => 'required|min:3|max:10',
-            'image_extention' => 'required',
-        ];
-
-    }
-    
-    public function messages()
-    {
-        return [
-            'image_name.required' => 'A name is required',
-            'image_extention.required' => 'A extention is required',
-        ];
+		    'page_id' => 'required|numeric',
+		    'social_net_id' => 'required|numeric',
+		    'description' => 'required|max:255',
+         ];
     }
 }

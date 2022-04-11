@@ -6,6 +6,7 @@ use App\Models\Red;
 use App\Models\Page;
 use App\Models\PageRed;
 use Illuminate\Http\Request;
+use App\Http\Requests\PageRedPostRequest;
 
 class PageRedController extends Controller
 {
@@ -37,7 +38,7 @@ class PageRedController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PageRedPostRequest $request)
     {
         //
         $pagered= new PageRed();

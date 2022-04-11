@@ -76,9 +76,9 @@ class ImageController extends Controller
      * @param  Image $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Image $image)
+    public function update(PostRequest $request, $id)
     {
-         $image->update($request->all());
+        $image = Image::where('image_id', $id)->update($request->all());
          return $image;
     }
 
