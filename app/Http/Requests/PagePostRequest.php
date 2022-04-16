@@ -26,7 +26,6 @@ class PagePostRequest extends FormRequest
         return  [
 		    'page_title' => 'required',
 		    'page_description' => 'required',
-		    'page_photo' => 'required',
          ];
     }
 }

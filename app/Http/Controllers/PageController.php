@@ -42,7 +42,6 @@ class PageController extends Controller
          $page= new Page();
          $page->page_title = $request->page_title;
          $page->page_description = $request->page_description;
-         $page->page_photo = $request->page_photo;
          $page->save(); 
     
     }

@@ -11,5 +11,5 @@ class Page extends Model
     //Page table 
     protected $table = 'page';
     protected $primarykey = 'page_id';
-    protected $fillable = ['page_title','page_description','page_photo','created_at','updated_at'];
+    protected $fillable = ['page_title','page_description','created_at','updated_at'];
 }

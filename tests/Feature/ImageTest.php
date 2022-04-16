@@ -8,13 +8,11 @@ use Tests\TestCase;
 
 class ImageTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+    /**  @test */
     public function test_image_index()
     {
+        $this->withoutExceptionHandling();
         $response = $this->get('/api/images');
 
         $response->assertStatus(200);
