@@ -38,11 +38,8 @@ class PageController extends Controller
      */
     public function store(PagePostRequest $request)
     {
-       
-         $page= new Page();
-         $page->page_title = $request->page_title;
-         $page->page_description = $request->page_description;
-         $page->save(); 
+        $page = Page::create($request->all());
+        return $page;
     
     }
 
