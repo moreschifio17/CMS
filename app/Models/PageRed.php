@@ -11,4 +11,5 @@ class PageRed extends Model
     protected $table = 'page_social_network';
     protected $primarykey = 'id';
     protected $fillable = ['page_id','social_net_id','description','created_at','updated_at'];
+ 
 }
