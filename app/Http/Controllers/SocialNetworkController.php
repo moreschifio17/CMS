@@ -12,10 +12,21 @@ use Illuminate\Http\Request;
 class SocialNetworkController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * index social-network
+    * @OA\Get(
+    *     path="/api/social",
+    *     tags={"Social Network"},
+    *     summary="index social-network",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Social-network's list."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Not Found"
+    *     )
+    * )
+    */
     public function index()
     {
         $socialNetworks = SocialNetwork::all();

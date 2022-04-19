@@ -1,0 +1,464 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API CMS",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000"
+        }
+    ],
+    "paths": {
+        "/api/images": {
+            "get": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "index Image",
+                "description": "index Image",
+                "operationId": "2352228068ea2ab96f614dd425ae11af",
+                "responses": {
+                    "200": {
+                        "description": "Image's list."
+                    },
+                    "default": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "store Image",
+                "operationId": "6b7ebc376b155537f1858fc7f3e6038c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "image_name": {
+                                                "type": "string"
+                                            },
+                                            "image_extention": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "image_name": "picky",
+                                    "image_extention": ".png"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "image_id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "image_name": {
+                                            "type": "string",
+                                            "example": "picky"
+                                        },
+                                        "image_extention": {
+                                            "type": "string",
+                                            "example": ".png"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Record not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/images/{image}": {
+            "put": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Update Image",
+                "operationId": "189930fe9cf96da8fb52c4cd50d6646d",
+                "parameters": [
+                    {
+                        "name": "image",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "image_name)": {
+                                                "type": "string"
+                                            },
+                                            "image_extention": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "image_name": "color",
+                                    "image_extention": ".png"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "image_id": {
+                                            "type": "number",
+                                            "example": 2
+                                        },
+                                        "image_name": {
+                                            "type": "string",
+                                            "example": "color"
+                                        },
+                                        "image_extention": {
+                                            "type": "string",
+                                            "example": ".png"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Delete Image",
+                "operationId": "94628cde6edc0c1f75987329bceadafb",
+                "parameters": [
+                    {
+                        "name": "image",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Delete image success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/page": {
+            "get": {
+                "tags": [
+                    "Page"
+                ],
+                "summary": "index Page",
+                "description": "index Page",
+                "operationId": "7c67dc1588f3a098fb1b715031f071ec",
+                "responses": {
+                    "200": {
+                        "description": "Page's list."
+                    },
+                    "default": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Page"
+                ],
+                "summary": "store Page",
+                "operationId": "d362145990a67e77784801e4aa15e00e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "page_title": {
+                                                "type": "string"
+                                            },
+                                            "page_description": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "page_title": "title example",
+                                    "page_description": "description example"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "page_id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "page_title": {
+                                            "type": "string",
+                                            "example": "title example"
+                                        },
+                                        "page_description": {
+                                            "type": "string",
+                                            "example": "description example"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Record not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/page/{page}": {
+            "put": {
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Update Page",
+                "operationId": "67dc7e6d87a5e0c976cf8632398ba29a",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "page_title)": {
+                                                "type": "string"
+                                            },
+                                            "page_description": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "page_title": "title ramdon",
+                                    "page_description": "welcome to my page"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "page_id": {
+                                            "type": "number",
+                                            "example": 2
+                                        },
+                                        "page_title": {
+                                            "type": "string",
+                                            "example": "title ramdon"
+                                        },
+                                        "page_description": {
+                                            "type": "string",
+                                            "example": "welcome to my page"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pages/{page}": {
+            "delete": {
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Delete Page",
+                "operationId": "7a1c016b6aa344e190f382724096d8f2",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Delete page success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/social": {
+            "get": {
+                "tags": [
+                    "Social Network"
+                ],
+                "summary": "index social-network",
+                "description": "index social-network",
+                "operationId": "6328b09137929fe65844a2d7175981d6",
+                "responses": {
+                    "200": {
+                        "description": "Social-network's list."
+                    },
+                    "default": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    }
+}
