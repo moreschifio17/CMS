@@ -57,3 +57,23 @@ Development local server
 ```
 php artisan serve
 ```
+## Swagger 
+
+```
+ composer require "darkaonline/l5-swagger"
+```
+- open your config/app.php and add this line: 
+```
+L5Swagger\L5SwaggerServiceProvider::class
+```
+- After run 
+```
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+```
+- Connect Database.
+```
+ php artisan migrate:fresh --seed
+```
+## PHPUNIT (custom test)
+```
+php artisan test or vendor\bin\phpunit
